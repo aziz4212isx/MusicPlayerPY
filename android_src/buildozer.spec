@@ -80,7 +80,7 @@ android.wakelock = True
 android.archs = arm64-v8a
 
 # (int) python-for-android version to use, if empty it will be the latest
-p4a.branch = release-2022.12.20
+#p4a.branch = release-2022.12.20
 
 # (str) python-for-android git clone directory (if empty, it will be automatically cloned from github)
 #p4a.source_dir =
