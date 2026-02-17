@@ -9,6 +9,9 @@ package.name = musicplayer
 # (str) Package domain (needed for android/ios packaging)
 package.domain = org.coba.music
 
+# (str) Application versioning (method 1)
+version = 0.1
+
 # (str) Source code where the main.py live
 source.dir = .
 
