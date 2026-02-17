@@ -28,7 +28,8 @@ jobs:
           pip install --upgrade pip
           pip install buildozer cython==0.29.33 virtualenv
           sudo apt update
-          sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
+          # libtinfo5 is not available in Ubuntu 24.04 (Noble), removed it.
+          sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev cmake libffi-dev libssl-dev
 
       - name: Build with Buildozer
         working-directory: ./android_src
