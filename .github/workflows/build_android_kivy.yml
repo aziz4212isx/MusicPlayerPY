@@ -26,18 +26,17 @@ jobs:
       - name: Install Buildozer and Dependencies
         run: |
           pip install --upgrade pip
-          # Remove Cython version pin to allow latest (needed for Kivy 2.3.0)
-          pip install buildozer cython virtualenv
+          # Pin Cython to 0.29.36 (Critical for pyjnius/kivy compatibility on this stack)
+          pip install buildozer cython==0.29.36 virtualenv
           sudo apt update
           sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev automake
 
       - name: Build with Buildozer
         working-directory: ./android_src
         env:
-          # Force Java 17
+          # Java 17 is required for Android SDK 33+
           JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
         run: |
-          # Buildozer often asks for confirmation, pipe yes to it
           yes | buildozer android debug
 
       - name: Upload APK
